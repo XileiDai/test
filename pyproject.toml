@@ -1,0 +1,35 @@
+[build-system]
+requires = [
+    "setuptools", 
+    "setuptools_scm",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energyplus-ooep"
+dynamic = ["version"]
+description = "EnergyPlus Python API, Object-Oriented"
+requires-python = ">=3.11"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+dependencies = [
+    'energyplus-core'
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+docs = [
+    "jupyter-book", 
+    "sphinxcontrib-mermaid",
+]
+
+[tool.setuptools.packages.find]
+where = ["packages"]
+namespaces = true
+
+[tool.setuptools_scm]
+version_scheme = "no-guess-dev"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["./tests"]
